@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lang_School"
         mc:Ignorable="d"
-        Title="Школа Языков Леарн"  Height="450" Width="800">
+        Title="Школа Языков Леарн"  Height="600" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="39*"/>
-            <ColumnDefinition Width="361*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="393*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="73*"/>
@@ -18,11 +18,11 @@
         <Rectangle  Grid.ColumnSpan="2" Fill="#FFE7FABF"></Rectangle>
         <Rectangle  Grid.RowSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Image Source="/Resources/school_logo.png" />
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="67" Margin="0,294,0,0">
             <Button x:Name="BackButt">Назад</Button>
             <Button x:Name="ForwardButt">Вперед</Button>
         </StackPanel>
-        <TextBlock Grid.ColumnSpan="2">Школа Языков Леарн</TextBlock>
-        <Frame Grid.Column="1" Grid.Row="1" x:Name="MainFrame"></Frame>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="19">Школа Языков Леарн</TextBlock>
+        <Frame Grid.Column="1" x:Name="MainFrame" Margin="0,73,0,0" Grid.RowSpan="2"/>
     </Grid>
 </Window>
