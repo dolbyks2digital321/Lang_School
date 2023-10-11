@@ -28,6 +28,13 @@ namespace Lang_School.Components
             DiscoTb.Text = service.DiscountStr;
             CostTb.Text = service.Cost.ToString(CostTb.Text);
             CostTb.Visibility = service.CostVisibility;
+            MainBorder.Background = service.ColorDisco;
+
+            if (App.isAdmin == false)
+            {
+                DeleteButt.Visibility = Visibility.Hidden;
+                EditButt.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

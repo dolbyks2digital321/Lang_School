@@ -32,7 +32,24 @@ namespace Lang_School
             //    item.MainImage = File.ReadAllBytes(fullPath);
             //}
             //App.db.SaveChanges();
-            MainFrame.Navigate(new ServiceListPage());
+            MainFrame.Navigate(new AuthorizationPage());
+        }
+
+        private void BackButt_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack && App.isAdmin == true)
+            {
+                MainFrame.GoBack();
+                MainFrame.RemoveBackEntry();
+            }
+            else if (MainFrame.CanGoBack) MainFrame.GoBack();      
+        }
+
+        private void ExitButt_Click(object sender, RoutedEventArgs e)
+        {
+            App.isAdmin = false;
+            MainFrame.Navigate(new AuthorizationPage());
+            if (MainFrame.CanGoBack) MainFrame.RemoveBackEntry();
         }
     }
 }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Lang_School.Components"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
-    <Border Height="160" Width="790" BorderBrush="#FF04A0FF" BorderThickness="2" Margin="2">
+    <Border x:Name="MainBorder" Height="160" Width="790" BorderBrush="#FFE7FABF" BorderThickness="2" Margin="2">
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="18*"/>
@@ -26,8 +26,8 @@
             </StackPanel>
             <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DiscoTb"></TextBlock>
             <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
-                <Button>Редактировать</Button>
-                <Button>Удалить</Button>
+                <Button x:Name="EditButt">Редактировать</Button>
+                <Button x:Name="DeleteButt">Удалить</Button>
             </StackPanel>
 
 

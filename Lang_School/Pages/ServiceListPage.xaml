@@ -14,6 +14,14 @@
             <RowDefinition Height="60*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <ComboBox x:Name="SortCB" SelectionChanged="SortCB_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1" > 
             <WrapPanel x:Name="ServiceWP"></WrapPanel>
         </ScrollViewer>
