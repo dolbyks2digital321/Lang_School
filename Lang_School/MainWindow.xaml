@@ -22,7 +22,7 @@
             <Button x:Name="BackButt" Click="BackButt_Click">Назад</Button>
             <Button x:Name="ExitButt" Click="ExitButt_Click">Выход</Button>
         </StackPanel>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="19">Школа Языков Леарн</TextBlock>
+        <TextBlock x:Name="TitleTB" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="19">Школа Языков Леарн</TextBlock>
         <Frame Grid.Column="1" x:Name="MainFrame" Margin="0,73,0,0" Grid.RowSpan="2" NavigationUIVisibility ="Hidden"/>
     </Grid>
 </Window>

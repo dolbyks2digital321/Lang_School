@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lang_School.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,13 +33,13 @@ namespace Lang_School.Pages
             {
                 App.isAdmin = true;
                 MessageBox.Show("Здравстуйте! Вы вошли как администратор!");
-                NavigationService.Navigate(new ServiceListPage());
+                Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
             }
             else if (PassBx.Password != "" && PassBx.Password != "0000") MessageBox.Show("Неверный пароль!");
             else
             {
                 MessageBox.Show("Здравстуйте! Вы вошли как пользователь!");
-                NavigationService.Navigate(new ServiceListPage());
+                Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
             }
 
         }

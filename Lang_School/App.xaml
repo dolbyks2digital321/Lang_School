@@ -23,6 +23,12 @@
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Margin" Value="3"></Setter>
         </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
         
        <!--i love u
         

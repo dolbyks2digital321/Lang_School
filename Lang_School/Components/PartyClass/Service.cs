@@ -15,7 +15,7 @@ namespace Lang_School.Components
         {
             get
             {
-                if (Discount == 0) return $"{Cost} рублей за {DurationInSeconds /60} минут";
+                if (Discount == 0) return $"{Cost} рублей за {DurationInSeconds / 60} минут";
                 else return $"{CostDiscount} рублей за {DurationInSeconds / 60} минут";
             }
             set { }
@@ -58,7 +58,7 @@ namespace Lang_School.Components
             {
                 if (Discount == 0)
                     return Cost;
-                else return Cost - (Cost = (decimal)Discount / 100);
+                else return Cost - (decimal)Discount / 100;
             }
         }
     }

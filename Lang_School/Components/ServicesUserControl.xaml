@@ -26,8 +26,8 @@
             </StackPanel>
             <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DiscoTb"></TextBlock>
             <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
-                <Button x:Name="EditButt">Редактировать</Button>
-                <Button x:Name="DeleteButt">Удалить</Button>
+                <Button x:Name="EditButt" Content="Редактировать" Click="EditButt_Click" />
+                <Button x:Name="DeleteButt" Content="Удалить" Click="DeleteButt_Click"/>
             </StackPanel>
 
 

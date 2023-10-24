@@ -44,16 +44,50 @@ namespace Lang_School.Pages
             {
                 serviceSortList = serviceSortList.OrderByDescending(x => x.CostDiscount);
             }
+
+            if(DiscountFilterCbx.SelectedIndex != 0)
+            {
+                if (DiscountFilterCbx.SelectedIndex == 1)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 0 && x.Discount < 5);
+                if (DiscountFilterCbx.SelectedIndex == 2)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 5 && x.Discount < 15);
+                if (DiscountFilterCbx.SelectedIndex == 3)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 15 && x.Discount < 30);
+                if (DiscountFilterCbx.SelectedIndex == 4)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 30 && x.Discount < 70);
+                if (DiscountFilterCbx.SelectedIndex == 5)
+                    serviceSortList = serviceSortList.Where(x => x.Discount >= 70 && x.Discount < 100);
+            }
+            if (SearchTbx.Text != null)
+            {
+                serviceSortList = serviceSortList.Where(x => x.Title.ToLower().Contains(SearchTbx.Text.ToLower()) || x.Description.ToLower().Contains(SearchTbx.Text.ToLower()));
+            }
+
             ServiceWP.Children.Clear();
             foreach (var service in serviceSortList)
             {
                 ServiceWP.Children.Add(new ServicesUserControl(service));
             }
+            CountDataTbx.Text = serviceSortList.Count() + " из " + App.db.Service.Count();
         }
 
         private void SortCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+        private void DiscountFilterCbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTbx_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Добавление услуг", new AddEditServicePage(new Service())));
         }
     }
 

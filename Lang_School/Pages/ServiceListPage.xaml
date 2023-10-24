@@ -20,11 +20,27 @@
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
+            <TextBlock>По скидке</TextBlock>
+            <ComboBox x:Name="DiscountFilterCbx" SelectionChanged="DiscountFilterCbx_SelectionChanged">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>От 0% до 5%</ComboBoxItem>
+                <ComboBoxItem>От 5% до 15%</ComboBoxItem>
+                <ComboBoxItem>От 15% до 30%</ComboBoxItem>
+                <ComboBoxItem>От 30% до 70%</ComboBoxItem>
+                <ComboBoxItem>От 70% до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По названию или описанию</TextBlock>
+            <TextBox x:Name="SearchTbx" TextChanged="SearchTbx_TextChanged"></TextBox>
         </StackPanel>
-        
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1" > 
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1" >
             <WrapPanel x:Name="ServiceWP"></WrapPanel>
         </ScrollViewer>
-        <Button Grid.Row="2" x:Name="AddBtn" Cursor="Hand">Добавить</Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  x:Name="AddBtn" Cursor="Hand" Click="AddBtn_Click">Добавить</Button>
+            <TextBox Margin=" 10 0" x:Name="CountDataTbx" IsReadOnly="True" BorderBrush="White"></TextBox>
+        </StackPanel>
+        
+        
     </Grid>
 </Page>
