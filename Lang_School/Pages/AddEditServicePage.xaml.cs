@@ -1,6 +1,8 @@
 ﻿using Lang_School.Components;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,15 +65,31 @@ namespace Lang_School.Pages
                 return;
             }
             App.db.SaveChanges();
+            MessageBox.Show("Сохранено!");
+            Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
         }
 
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if (!char.IsDigit(e.Text, 0)
+            if (!char.IsDigit(e.Text, 0))
             {
                 e.Handled = true;
             }
+        }
+
+        private void EditImageButt_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jepg|*.jepg"
+            };
+            if (openFile.ShowDialog() == true)
+            {
+                service.MainImage = File.ReadAllBytes(openFile.FileName);
+                MainImage.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
+
         }
     }
 }

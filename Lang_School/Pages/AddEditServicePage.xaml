@@ -40,10 +40,10 @@
             </StackPanel>
         <StackPanel Margin="0 0 300 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
-                <Image Source="{Binding MainImage}" Width="200" Height="200"></Image>
+                <Image x:Name="MainImage" Source="{Binding MainImage}" Width="200" Height="200"></Image>
             </StackPanel>
             <StackPanel>
-                <Button Width="200">Изменить изображение</Button>
+                <Button x:Name="EditImageButt" Width="200" Click="EditImageButt_Click">Изменить изображение</Button>
             </StackPanel>
         </StackPanel>
     </Grid>
