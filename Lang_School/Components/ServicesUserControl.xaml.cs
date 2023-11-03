@@ -77,5 +77,10 @@ namespace Lang_School.Components
                 Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
             }
         }
+
+        private void SignButt_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Запись на услугу", new SigninUpServicePage(service)));
+        }
     }
 }

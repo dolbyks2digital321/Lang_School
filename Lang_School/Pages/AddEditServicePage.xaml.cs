@@ -29,6 +29,8 @@ namespace Lang_School.Pages
             InitializeComponent();
             service = _service;
             this.DataContext = service;
+             PhotoList.ItemsSource = App.db.ServicePhoto.Where(x => x.ServiceID == service.ID).ToList();
+            if (service.ID != 0) StackPanelPhoto.Visibility = Visibility.Visible;
         }
 
         private void SaveButt_Click(object sender, RoutedEventArgs e)
@@ -56,6 +58,7 @@ namespace Lang_School.Pages
                 else
                 {
                     App.db.Service.Add(service);
+                    StackPanelPhoto.Visibility = Visibility.Visible;
                 }
             }    
             //вывод ошибкок
@@ -66,7 +69,8 @@ namespace Lang_School.Pages
             }
             App.db.SaveChanges();
             MessageBox.Show("Сохранено!");
-            Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
+              
+            //Navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
         }
 
 
@@ -90,6 +94,36 @@ namespace Lang_School.Pages
                 MainImage.Source = new BitmapImage(new Uri(openFile.FileName));
             }
 
+        }
+
+        private void AddImgButt_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jepg|*.jepg"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                App.db.ServicePhoto.Add(new ServicePhoto()
+                {
+                    ServiceID = service.ID,
+                    PhotoByte = File.ReadAllBytes(openFile.FileName)
+                });
+                App.db.SaveChanges();
+                PhotoList.ItemsSource = App.db.ServicePhoto.Where(x => x.ServiceID == service.ID).ToList();
+            }
+            else MessageBox.Show("Ничего не выбрано!");
+        }
+
+        private void DeleteImgButt_Click(object sender, RoutedEventArgs e)
+        {
+            var selectPhoto = PhotoList.SelectedItem as ServicePhoto;
+            if (selectPhoto != null) 
+                App.db.ServicePhoto.Remove(selectPhoto);
+            else 
+                MessageBox.Show("Ничего не выбрано!");
+            App.db.SaveChanges();   
+            PhotoList.ItemsSource = App.db.ServicePhoto.Where(x => x.ServiceID == service.ID).ToList();
         }
     }
 }

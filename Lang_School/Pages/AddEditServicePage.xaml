@@ -9,7 +9,7 @@
       Title="AddEditServicePage">
 
     <Grid>
-        <StackPanel Margin="300 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Margin="310 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <TextBlock >Идентификатор</TextBlock>
                     <TextBox IsReadOnly="True" Text="{Binding ID}"></TextBox>
@@ -38,12 +38,30 @@
                     <Button x:Name="SaveButt" Click="SaveButt_Click">Сохранить</Button>
                 </StackPanel>
             </StackPanel>
-        <StackPanel Margin="0 0 300 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Margin="0 0 310 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
                 <Image x:Name="MainImage" Source="{Binding MainImage}" Width="200" Height="200"></Image>
             </StackPanel>
             <StackPanel>
                 <Button x:Name="EditImageButt" Width="200" Click="EditImageButt_Click">Изменить изображение</Button>
+            </StackPanel>
+            <StackPanel x:Name="StackPanelPhoto" >
+                <ListView x:Name="PhotoList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="330" Height="110">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="100" Source="{Binding PhotoByte}"></Image>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button x:Name="AddImgButt" Click="AddImgButt_Click">Добавить</Button>
+                    <Button x:Name="DeleteImgButt" Click="DeleteImgButt_Click">Удалить</Button>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

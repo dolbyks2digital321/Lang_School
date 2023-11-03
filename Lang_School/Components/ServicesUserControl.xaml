@@ -28,6 +28,7 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
                 <Button x:Name="EditButt" Content="Редактировать" Click="EditButt_Click" />
                 <Button x:Name="DeleteButt" Content="Удалить" Click="DeleteButt_Click"/>
+                <Button x:Name="SignButt" Click="SignButt_Click">Записаться</Button>
             </StackPanel>
 
 
