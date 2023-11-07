@@ -12,7 +12,17 @@ namespace Lang_School.Components
         { 
             get 
             { var time = StartTime - DateTime.Now;
-                return $"{time.Hours * -1}:{time.Minutes * -1}"; } 
+                int hours = (int)time.TotalMinutes/60;
+                int minutes = (int)time.TotalMinutes%60;
+                return $"{hours}:{minutes}"; } 
+        }
+
+        public string ColorStr
+        {
+            get
+            {
+
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +24,9 @@ namespace Lang_School.Pages
         public SignDays()
         {
             InitializeComponent();
-            var nextDate = DateTime.Today.AddDays(1);
-            
-            //EntryList.ItemsSource = App.db.ClientService.Where(x => x.StartTime.ToString("dd.MM.yyyy") == DateTime.Now.ToString("dd.MM.yyyy") || x.StartTime.ToString("dd.MM.yyyy") == nextDate.ToString("dd.MM.yyyy")).ToList();
-            EntryList.ItemsSource = App.db.ClientService.ToList();
+            var endDate = DateTime.Today.AddDays(1);
+
+            EntryList.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime <= endDate).OrderBy(x => x.StartTime).ToList();
 
         }
     }
