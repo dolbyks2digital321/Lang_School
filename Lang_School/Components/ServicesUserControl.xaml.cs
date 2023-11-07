@@ -38,6 +38,7 @@ namespace Lang_School.Components
 
             if (App.isAdmin == false)
             {
+                SignButt.Visibility = Visibility.Hidden;
                 DeleteButt.Visibility = Visibility.Hidden;
                 EditButt.Visibility = Visibility.Hidden;
             }
