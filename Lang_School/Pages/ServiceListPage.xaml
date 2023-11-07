@@ -37,6 +37,7 @@
             <WrapPanel x:Name="ServiceWP"></WrapPanel>
         </ScrollViewer>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  x:Name="ZapisBtn" Cursor="Hand" Click="ZapisBtn_Click">Ближайшие записи</Button>
             <Button  x:Name="AddBtn" Cursor="Hand" Click="AddBtn_Click">Добавить</Button>
             <TextBox Margin=" 10 0" x:Name="CountDataTbx" IsReadOnly="True" BorderBrush="White"></TextBox>
         </StackPanel>

@@ -89,6 +89,11 @@ namespace Lang_School.Pages
         {
             Navigation.NextPage(new PageComponent("Добавление услуг", new AddEditServicePage(new Service())));
         }
+
+        private void ZapisBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Ближайшие записи", new SignDays()));
+        }
     }
 
 

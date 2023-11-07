@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="Components\Navigation.cs" />
     <Compile Include="Components\PartyClass\Client.cs" />
+    <Compile Include="Components\PartyClass\ClientService.cs" />
     <Compile Include="Components\PartyClass\Service.cs" />
     <Compile Include="Components\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -150,6 +151,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SignDays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SigninUpServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +169,9 @@
     </Compile>
     <Compile Include="Pages\ServiceListPage.xaml.cs">
       <DependentUpon>ServiceListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignDays.xaml.cs">
+      <DependentUpon>SignDays.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SigninUpServicePage.xaml.cs">
       <DependentUpon>SigninUpServicePage.xaml</DependentUpon>
