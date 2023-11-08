@@ -32,6 +32,7 @@ namespace Lang_School.Pages
             ClientCbx.ItemsSource = App.db.Client.ToList();
             ClientCbx.DisplayMemberPath = "FullNameSet";
             DateDp.DisplayDateStart = DateTime.Now;
+            ServTitle.Text = $"{service.Title}, {service.DurationInSeconds/60} мин.";
         }
 
         private bool isValidTime(string time)
@@ -59,6 +60,7 @@ namespace Lang_School.Pages
                         });
                         MessageBox.Show("Запись добавлена");
                         App.db.SaveChanges();
+                        Navigation.BackPage();
                     }
                     else MessageBox.Show("Неверный формат времени!");
                 }

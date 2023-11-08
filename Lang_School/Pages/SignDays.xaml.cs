@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Lang_School.Pages
 {
@@ -21,13 +22,20 @@ namespace Lang_School.Pages
     /// </summary>
     public partial class SignDays : Page
     {
+        DateTime endDate = DateTime.Now.AddDays(3);
+        DispatcherTimer timer = new DispatcherTimer();
         public SignDays()
         {
             InitializeComponent();
-            var endDate = DateTime.Today.AddDays(1);
+            timer.Tick += new EventHandler(Update);
+            timer.Interval = new TimeSpan(0, 0, 30);
+            timer.Start();
+            EntryList.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Now && x.StartTime <= endDate).OrderBy(x => x.StartTime).ToList();
+        }
 
-            EntryList.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Today && x.StartTime <= endDate).OrderBy(x => x.StartTime).ToList();
-
+        private void Update(object sender, EventArgs s)
+        {
+            EntryList.ItemsSource = App.db.ClientService.Where(x => x.StartTime >= DateTime.Now && x.StartTime <= endDate).OrderBy(x => x.StartTime).ToList();
         }
     }
 }

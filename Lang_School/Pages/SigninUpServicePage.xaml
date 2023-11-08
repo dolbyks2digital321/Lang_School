@@ -9,26 +9,34 @@
       Title="SigninUpServicePage">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
-                <TextBlock Text="{Binding Title}" Margin="0 2"></TextBlock>
-                <TextBlock Margin="0 2"> , </TextBlock>
-                <TextBlock Text="{Binding DurationInSeconds}" Margin="0 2"></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel Margin="10 0">
+                <StackPanel Margin="0 5" HorizontalAlignment="Right">
+                    <Image Source="{Binding MainImage}" Width="300"></Image>
+                    <TextBlock x:Name="ServTitle" Width="300" TextWrapping="Wrap"></TextBlock>
+                    
+                    <!--<TextBlock Text="{Binding Title}" Margin="0 2"></TextBlock>
+                    <TextBlock Margin="0 2"> ,</TextBlock>
+                    <TextBlock Text="{Binding DurationInSeconds}" Margin="0 2"></TextBlock>-->
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
-                <TextBlock Margin="10 0">Клиент</TextBlock>
-                <ComboBox x:Name="ClientCbx"></ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
-                <TextBlock Margin="10 0">Дата</TextBlock>
-                <DatePicker x:Name="DateDp" Width="150" Height="30" Margin="3"></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
-                <TextBlock Margin="10 0">Время</TextBlock>
-                <TextBox x:Name="TimeTb" Width="150" Height="25"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
-                <Button x:Name="SignUpButt" Click="SignUpButt_Click" >Записаться на услугу</Button>
+
+            <StackPanel Margin="10 0">
+                <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
+                    <TextBlock Margin="10 0">Клиент</TextBlock>
+                    <ComboBox x:Name="ClientCbx"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
+                    <TextBlock Margin="10 0">Дата</TextBlock>
+                    <DatePicker x:Name="DateDp" Width="150" Height="30" Margin="3"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
+                    <TextBlock Margin="10 0">Время</TextBlock>
+                    <TextBox x:Name="TimeTb" Width="150" Height="25"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 5" HorizontalAlignment="Right">
+                    <Button x:Name="SignUpButt" Click="SignUpButt_Click" >Записаться на услугу</Button>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
